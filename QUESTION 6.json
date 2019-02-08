@@ -1,0 +1,18 @@
+{
+  "properties": {
+    "borough": { 
+      "type":     "text",
+      "fielddata": true
+    }
+  }
+}
+{
+	"aggs" : {
+		"restos_bucket" : {
+			"terms" : {
+				"field" : "borough.raw"
+			}
+		}
+	},
+	"size" : 0
+}

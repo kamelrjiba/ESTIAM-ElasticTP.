@@ -1,0 +1,8 @@
+{
+  "query": {
+    "match": {
+      "cuisine": "japonese" 
+    } 
+  },
+  "size": 0
+}

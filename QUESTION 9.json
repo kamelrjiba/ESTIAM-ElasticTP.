@@ -1,0 +1,33 @@
+{
+    "query": {
+        "match" : { 
+            "borough": "Manhattan" 
+        }
+    },
+    "aggs": {
+        "cuisine": {
+            "terms": { 
+                "field": "cuisine"
+            },
+            "aggs": {
+                "name": {
+                    "terms": { 
+                        "field": "name.keyword",
+                        "order": {
+                            "score": "desc"
+                        },
+                        "size": 1
+                    },
+                    "aggs": {
+                        "score": {
+                            "avg": {
+                                "field": "grades.score"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "size": 0
+}

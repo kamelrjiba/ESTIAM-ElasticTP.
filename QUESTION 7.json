@@ -1,0 +1,26 @@
+{
+  "properties": {
+    "cuisine": {
+      "type":     "text",
+      "fielddata": true
+    }
+  }
+}
+{
+	  "aggs" : {
+      "genres" : {
+          "terms" : { "field" : "cuisine" }
+      }
+  },
+      
+  "query": {
+    "bool": {
+      "must": 
+        {
+          "match": {
+            "borough": "Brooklyn"
+          }
+              }
+}
+}
+}                       
